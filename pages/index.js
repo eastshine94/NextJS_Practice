@@ -5,32 +5,14 @@ import { Divider, Header, Loader } from 'semantic-ui-react';
 import ItemList from '../src/component/ItemList';
 import styles from '../styles/Home.module.css';
 
-export default function Home() {
-  const [list, setList] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
-
-  const API_URL =
-    'http://makeup-api.herokuapp.com/api/v1/products.json?brand=maybelline';
-
-  function getData() {
-    setIsLoading(true);
-    axios.get(API_URL).then(res => {
-      setList(res.data);
-      setIsLoading(false);
-    });
-  }
-
-  useEffect(() => {
-    getData();
-  }, []);
-
+export default function Home({ list }) {
   return (
     <div>
       <Head>
         <title>Home</title>
         <meta name="description" content="홈 입니다." />
       </Head>
-      {isLoading ? (
+      {!list ? (
         <div style={{ padding: '300px 0' }}>
           <Loader inline="centered" active>
             Loading
@@ -54,4 +36,15 @@ export default function Home() {
   );
 }
 
-// axios
+export async function getStaticProps() {
+  const API_URL =
+    'http://makeup-api.herokuapp.com/api/v1/products.json?brand=maybelline';
+  const res = await axios.get(API_URL);
+  const data = res.data;
+
+  return {
+    props: {
+      list: data
+    }
+  };
+}
