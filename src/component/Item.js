@@ -12,6 +12,7 @@ export default function Item({ item }) {
     product_type,
     product_link
   } = item;
+
   return (
     <>
       <div className={styles.wrap}>
@@ -25,7 +26,14 @@ export default function Item({ item }) {
             {category ? `${category}/` : ''}
             {product_type}
           </span>
-          <Button color="orange">구매하기</Button>
+
+          <Button
+            color="orange"
+            content="구매하기"
+            onClick={e => {
+              e.preventDefault();
+            }}
+          />
         </div>
       </div>
       <Header as="h3">Description</Header>
