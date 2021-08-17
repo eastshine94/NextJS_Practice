@@ -1,18 +1,19 @@
-import { useEffect, useState } from 'react';
 import axios from 'axios';
 import Head from 'next/head';
 import { Divider, Header, Loader } from 'semantic-ui-react';
 import ItemList from '../src/component/ItemList';
-import styles from '../styles/Home.module.css';
+import { useRouter } from 'next/router';
 
 export default function Home({ list }) {
+  const router = useRouter();
+
   return (
     <div>
       <Head>
         <title>Home</title>
         <meta name="description" content="홈 입니다." />
       </Head>
-      {!list ? (
+      {router.isFallback ? (
         <div style={{ padding: '300px 0' }}>
           <Loader inline="centered" active>
             Loading
