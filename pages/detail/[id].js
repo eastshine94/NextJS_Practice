@@ -10,8 +10,8 @@ function Post({ item }) {
   return (
     <>
       <Head>
-        <title>{item.name}</title>
-        <meta name="description" content={item.description} />
+        <title>{item?.name}</title>
+        <meta name="description" content={item?.description} />
       </Head>
       {router.isFallback ? (
         <div style={{ padding: '300px 0' }}>

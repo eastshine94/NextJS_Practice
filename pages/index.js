@@ -3,15 +3,9 @@ import axios from 'axios';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import ItemList from '../src/component/ItemList';
-import useSWR from 'swr';
-import { useEffect } from '../.next/static/chunks/main';
 
 export default function Home({ list }) {
   const router = useRouter();
-  const API_URL =
-    'http://makeup-api.herokuapp.com/api/v1/products.json?brand=maybelline';
-  const fetcher = url => axios.get(url);
-  const { data } = useSWR(API_URL, fetcher);
 
   return (
     <div>
