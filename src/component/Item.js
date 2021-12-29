@@ -1,4 +1,5 @@
-import { Button, Header } from 'semantic-ui-react';
+import { Header } from 'semantic-ui-react';
+import Button from './Button';
 import styles from './Item.module.css';
 
 export default function Item({ item }) {

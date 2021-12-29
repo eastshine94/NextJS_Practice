@@ -1,11 +1,5 @@
-import {
-  Button,
-  Divider,
-  Form,
-  Header,
-  List,
-  TextArea
-} from 'semantic-ui-react';
+import { Divider, Form, Header, List, TextArea } from 'semantic-ui-react';
+import Button from '../src/component/Button';
 export default function About() {
   return (
     <div>
@@ -48,7 +42,7 @@ export default function About() {
           <label>내용</label>
           <TextArea />
         </Form.Field>
-        <Button color="green">보내기</Button>
+        <Button color="green" content="보내기" />
       </Form>
     </div>
   );

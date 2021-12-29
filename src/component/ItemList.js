@@ -17,7 +17,9 @@ export default function ItemList({ list }) {
                       alt={item.name}
                       className={styles.img_item}
                     />
-                    <strong className={styles.tit_item}>{item.name}</strong>
+                    <div>
+                      <strong className={styles.tit_item}>{item.name}</strong>
+                    </div>
                     <span className={styles.txt_info}>
                       {item.category} {item.product_type}
                     </span>
