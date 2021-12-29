@@ -14,3 +14,7 @@ a {
 * {
   box-sizing: border-box;
 }
+
+:root {
+  --color-red-10: #fde0e0;
+}
